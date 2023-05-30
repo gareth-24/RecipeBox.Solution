@@ -58,6 +58,7 @@ namespace RecipeBox.Controllers
     {
       Ingredient thisIngredient = _db.Ingredients
                 .Include(ingredient => ingredient.JoinIngredientRecipeEntities)
+                .ThenInclude(join => join.Recipe)
                 .FirstOrDefault(ingredient => ingredient.IngredientId == id);
       return View(thisIngredient);
     }

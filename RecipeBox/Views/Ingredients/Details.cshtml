@@ -7,7 +7,7 @@
 
 <h2>Ingredient Details</h2>
 <hr>
-<h3>@Html.DisplayFor(model => model.IngredientName)</h3>
+<h3>Ingredient: <em>@Html.DisplayFor(model => model.IngredientName)</em></h3>
 
 @* can add quantity or description here later *@
 
@@ -32,8 +32,8 @@ else
 }
 <hr>
 
-<p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Edit Ingredient", "Edit", new { id = Model.IngredientId })</p>
-<p>@Html.ActionLink("Delete Ingredient", "Delete", new { id = Model.IngredientId })</p>
-<p>@Html.ActionLink("Add a Recipe", "AddRecipe", new { id = Model.IngredientId })</p>
+<p>@Html.ActionLink("Back to ingredients list", "Index")</p>
+<p>@Html.ActionLink("Edit current ingredient", "Edit", new { id = Model.IngredientId })</p>
+<p>@Html.ActionLink("Delete current ingredient", "Delete", new { id = Model.IngredientId })</p>
+<p>@Html.ActionLink("Add current ingredient to recipe", "AddRecipe", new { id = Model.IngredientId })</p>
 

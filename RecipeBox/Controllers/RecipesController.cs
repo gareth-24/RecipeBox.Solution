@@ -125,5 +125,7 @@ namespace RecipeBox.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    // add "AddTag" routes and another deleteJoin for recipetags
   }
 }
