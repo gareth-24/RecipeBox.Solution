@@ -8,6 +8,7 @@ namespace RecipeBox.Models
     public int IngredientId { get; set; }
     [Required(ErrorMessage = "The ingredient's name can't be empty!")]
     public string IngredientName { get; set; }
-
+    public List<IngredientRecipe> JoinIngredientRecipeEntities { get;}
+    public ApplicationUser User { get; set; }
   }
 }

@@ -6,3 +6,41 @@
 
 <h1>Welcome to the Recipe Box App!</h1>
 <hr>
+
+<h4>Recipies</h4>
+@if (Model["recipes"].Length == 0)
+{
+  <p>No recipes have been added yet!</p>
+}
+<ul>
+  @foreach (Recipe rec in Model["recipes"])
+  {
+  <li>@Html.ActionLink(@rec.RecipeName, "Details", "Recipes", new { id = @rec.RecipeId})</li>
+  }
+</ul>
+
+@if (User.Identity.IsAuthenticated)
+{
+  <h4>Ingredients for @User.Identity.Name</h4>
+  @if (Model["ingredients"].Length == 0)
+  {
+    <p>No ingredients have been added yet!</p>
+  }
+  <ul>
+    @foreach (Ingredient ingredient in Model["ingredients"])
+    {
+      <li>@Html.ActionLink(ingredient.IngredientName, "Details", "Ingredients", new { id = @ingredient.IngredientId})</li>
+    }
+  </ul>
+}
+else
+{
+  <h4>Ingredients</h4>
+  <p>Please @Html.ActionLink("log in", "LogIn", "Account") to view or manage ingredients.</p>
+}
+
+<h4>Tags</h4>
+@* add tags stuff here *@
+
+<hr>
+<p>@Html.ActionLink("Manage ingredients", "Index", "Ingredients")</p>
