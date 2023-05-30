@@ -1,0 +1,39 @@
+@{
+  Layout = "_Layout";
+}
+
+@model RecipeBox.Models.Recipe;
+@using RecipeBox.Models;
+@using System.Collections.Generic;
+
+<h2>Recipe Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.RecipeName): @Html.DisplayFor(model => model.RecipeName)</h3>
+
+<h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>
+
+<!-- INFO ABOUT RECIPE INGREDIENTS & TAGS -->
+@if(@Model.JoinIngredientRecipeEntities.Count == 0)
+{
+  <p>This recipe does not have any ingredients listed yet!</p>
+}
+else
+{
+  <h4>Ingredients used in this recipe:</h4>
+  <ul>
+    @foreach (IngredientRecipe join in Model.JoinIngredientRecipeEntities)
+    {
+      <li>@join.Ingredient.IngredientName</li>
+      @using (Html.BeginForm("DeleteJoin", "Recipes"))
+      {
+        @Html.Hidden("joinId", @join.IngredientRecipeId)
+        <input type="submit" value="Delete"/>
+      }
+    }
+  </ul>
+}
+
+<p>@Html.ActionLink("Back to Recipes", "Index")</p>
+<p>@Html.ActionLink("Edit Recipe", "Edit", new { id = Model.RecipeId })</p>
+<p>@Html.ActionLink("Delete Recipe", "Delete", new { id = Model.RecipeId })</p>
+<p>@Html.ActionLink("Add ingredient", "AddIngredient", new { id = Model.RecipeId })</p>

@@ -1,0 +1,39 @@
+@{
+  Layout = "_Layout";
+}
+
+@using RecipeBox.Models;
+@model RecipeBox.Models.Ingredient;
+
+<h2>Ingredient Details</h2>
+<hr>
+<h3>@Html.DisplayFor(model => model.IngredientName)</h3>
+
+@* can add quantity or description here later *@
+
+@if(@Model.JoinIngredientRecipeEntities.Count == 0)
+{
+  <p>This ingredient is not used in any of the listed recipes yet.</p>
+}
+else
+{
+  <h4>This ingredient is used in the following recipes:</h4>
+  <ul>
+    @foreach (IngredientRecipe join in Model.JoinIngredientRecipeEntities)
+    {
+      <li>Recipe: @join.Recipe.RecipeName</li>
+      @using (Html.BeginForm("DeleteJoin", "Ingredients"))
+      {
+        @Html.Hidden("joinId", @join.IngredientRecipeId)
+        <input type="submit" value="Delete"/>
+      }
+    }
+  </ul>
+}
+<hr>
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Edit Ingredient", "Edit", new { id = Model.IngredientId })</p>
+<p>@Html.ActionLink("Delete Ingredient", "Delete", new { id = Model.IngredientId })</p>
+<p>@Html.ActionLink("Add a Recipe", "AddRecipe", new { id = Model.IngredientId })</p>
+

@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model RecipeBox.Models.Ingredient;
+
+<h2>Add an ingredient</h2>
+<hr>
+
+<p>@Html.ValidationMessageFor(model => model.IngredientName, "", new { @class = "text-danger", @style = "font-weight: 600" })</p>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.IngredientName, "Ingredient: ")
+  @Html.TextBoxFor(model => model.IngredientName, new { required = "required" })
+
+  <input type="submit" value="Add new ingredient" class="btn btn-primary" />
+}
+<br>
+<p>@Html.ActionLink("Show all ingredients", "Index")</p>
+<p>@Html.ActionLink("Create a new recipe", "Create", "Recipes")</p>

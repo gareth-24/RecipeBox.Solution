@@ -7,7 +7,7 @@
 <h1>Welcome to the Recipe Box App!</h1>
 <hr>
 
-<h4>Recipies</h4>
+<h4>Recipes</h4>
 @if (Model["recipes"].Length == 0)
 {
   <p>No recipes have been added yet!</p>
@@ -44,3 +44,6 @@ else
 
 <hr>
 <p>@Html.ActionLink("Manage ingredients", "Index", "Ingredients")</p>
+<p>@Html.ActionLink("Manage recipes", "Index", "Recipes")</p>
+<p>@Html.ActionLink("Manage tags", "Index", "Tags")</p>
+<p>@Html.ActionLink("Manage Account", "Index", "Account")</p>
