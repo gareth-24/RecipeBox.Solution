@@ -5,16 +5,24 @@
 @using RecipeBox.Models;
 
 <h1>Tags</h1>
+<hr>
 
+<div class="card">
 @if (@Model.Count == 0)
 {
   <h3>No tags have been added yet!</h3>
-} 
-
-@foreach (Tag tag in Model)
-{
-  <li>@Html.ActionLink($"{tag.Title}", "Details", new { id = tag.TagId })</li>
 }
+else
+{
+  <h6 class="card-header">Tags</h6>
+}
+<ul>
+  @foreach (Tag tag in Model)
+  {
+    <li>@Html.ActionLink($"{tag.Title}", "Details", new { id = tag.TagId })</li>
+  }
+</ul>
+</div>
 <hr><br>
 
 <p>@Html.ActionLink("Add new tag", "Create", "Tags", null, new { @class = "btn btn-light" })</p>

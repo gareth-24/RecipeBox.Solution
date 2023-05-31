@@ -10,7 +10,6 @@ div#footer {
 }
 
 body {
-	/* background-image: url("../img/recipe.jpeg"); */
 	background-color: #a6cfb8;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -21,7 +20,13 @@ body {
 }
 
 div#main-content {
-	/* background-color: #afcdb2; */
+	/* background-color: #a6cfb8;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: auto;
+	background-attachment: fixed;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	padding-bottom: 5%; */
 }
 
 div#carouselExampleCaptions {
@@ -53,4 +58,8 @@ div#navbar {
 
 .card{
 	opacity: 0.85;
+	padding: 10px;
+	background-color: #E3E3E3;
+	width: 75%;
+	line-height: 200%;
 }
