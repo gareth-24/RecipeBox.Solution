@@ -5,20 +5,32 @@ div#footer {
 	width:100%;
 	color:#CCC;
 	background:#333;
-	padding:8px;
+	padding: 4px;
+	padding-left: 8px;
 }
 
 body {
 	/* background-image: url("../img/recipe.jpeg"); */
+	background-color: #a6cfb8;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: auto;
 	background-attachment: fixed;
 	font-family: Georgia, 'Times New Roman', Times, serif;
+	padding-bottom: 5%;
+}
+
+div#main-content {
+	/* background-color: #afcdb2; */
+}
+
+div#carouselExampleCaptions {
+	/* background-color: #E3E3E3; */
 }
 
 img{
 	display: block;
+	padding: 15px;
 	margin-left: auto;
 	margin-right: auto;
 	height: 10%;
@@ -26,4 +38,19 @@ img{
 
 div#navbar {
 	margin-bottom: 20px;
+	border-bottom: solid;
+	border-width: 1px;
+}
+
+.link a:hover {
+	color: #fc03cef0;
+	color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.card{
+	opacity: 0.85;
 }

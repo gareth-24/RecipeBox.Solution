@@ -55,9 +55,9 @@ else
     }
 </ul>
 }
-
-<p>@Html.ActionLink("Back to Recipes", "Index")</p>
-<p>@Html.ActionLink("Edit Recipe", "Edit", new { id = Model.RecipeId })</p>
-<p>@Html.ActionLink("Delete Recipe", "Delete", new { id = Model.RecipeId })</p>
-<p>@Html.ActionLink("Add ingredient", "AddIngredient", new { id = Model.RecipeId })</p>
-<p>@Html.ActionLink("Add tag", "AddTag", new { id = Model.RecipeId })</p>
+<hr><br>
+<p>@Html.ActionLink("Back to Recipes", "Index", "Recipes", null, new { @class = "btn btn-light" })</p>
+<p>@Html.ActionLink("Add ingredient", "AddIngredient", null, new { id = Model.RecipeId }, new { @class = "btn btn-light" })</p>
+<p>@Html.ActionLink("Add tag", "AddTag", null, new { id = Model.RecipeId }, new { @class = "btn btn-light" })</p>
+<p>@Html.ActionLink("Edit Recipe", "Edit", null, new { id = Model.RecipeId }, new { @class = "btn btn-light" })</p>
+<p>@Html.ActionLink("Delete Recipe", "Delete", null, new { id = Model.RecipeId }, new { @class = "btn btn-light" })</p>

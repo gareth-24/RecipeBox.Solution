@@ -5,23 +5,26 @@
 @model RecipeBox.Models.Recipe
 
 <h4>Add a new recipe</h4>
+<hr><br>
+
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.RecipeName)
+  @Html.LabelFor(model => model.RecipeName, "Recipe Name")<br>
   @Html.TextBoxFor(model => model.RecipeName)
   <br>
   <br>
-  @Html.LabelFor(model => model.Description)
+  @Html.LabelFor(model => model.Description)<br>
   @Html.TextBoxFor(model => model.Description)
   <br>
   <br>
-  @Html.LabelFor(model => model.Instructions)
+  @Html.LabelFor(model => model.Instructions)<br>
   @Html.TextAreaFor(model => model.Instructions, 5, 40, null)
   <br>
   <br>
-  @Html.LabelFor(model => model.Rating)
-  @Html.TextBoxFor(model => model.Rating)
-
-  <input type="submit" value="Add new category" />
+  @Html.LabelFor(model => model.Rating)<br>
+  @Html.TextBoxFor(model => model.Rating)<br>
+  <br>
+  <input type="submit" value="Add new recipe" class="btn btn-light" />
 }
-<p>@Html.ActionLink("Show all categories", "Index")</p>
+<hr><br>
+<p>@Html.ActionLink("Show all recipes", "Index", "Recipes", null, new { @class = "btn btn-light" })</p>

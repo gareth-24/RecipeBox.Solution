@@ -84,7 +84,7 @@
     else
     {
       <h4>Ingredients</h4>
-      <p>Please @Html.ActionLink("log in", "LogIn", "Account") to view or manage ingredients.</p>
+      <p>Please @Html.ActionLink("log in", "LogIn", "Account") to view or manage your list of ingredients.</p>
     }
   </div>
 
@@ -102,8 +102,19 @@
     </ul>
   </div>
 </div>
-<hr>
-<p>@Html.ActionLink("Manage ingredients", "Index", "Ingredients")</p>
-<p>@Html.ActionLink("Manage recipes", "Index", "Recipes")</p>
-<p>@Html.ActionLink("Manage tags", "Index", "Tags")</p>
-<p>@Html.ActionLink("Manage Account", "Index", "Account")</p>
+<br>
+<div class="row align-items start">
+  <div class="col">
+    <p>@Html.ActionLink("Manage recipes", "Index", "Recipes", null, new { @class = "btn btn-light" })</p>
+  </div>
+  <div class="col">
+    <p>@Html.ActionLink("Manage ingredients", "Index", "Ingredients", null, new { @class = "btn btn-light" })</p>
+  </div>
+  <div class="col">
+    <p>@Html.ActionLink("Manage tags", "Index", "Tags", null, new { @class = "btn btn-light" })</p>
+  </div>
+</div>
+
+<hr><br>
+
+<p>@Html.ActionLink("Manage Account", "Index", "Account", null, new { @class = "btn btn-secondary" })</p>

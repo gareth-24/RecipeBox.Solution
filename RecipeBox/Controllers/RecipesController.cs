@@ -24,7 +24,7 @@ namespace RecipeBox.Controllers
 
     public ActionResult Index()
     {
-      return View(_db.Recipes.ToList());
+      return View(_db.Recipes.OrderByDescending(recipe => recipe.Rating).ToList());
     }
 
     public ActionResult Details(int id)

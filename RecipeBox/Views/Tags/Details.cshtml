@@ -28,8 +28,8 @@ else
   }
   </ul>
 }
-
-<p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Add a recipe", "AddRecipe", new { id = Model.TagId })</p>
-<p>@Html.ActionLink("Edit Tag", "Edit", new { id = Model.TagId })</p>
-<p>@Html.ActionLink("Delete Tag", "Delete", new { id = Model.TagId })</p>
+<hr><br>
+<p>@Html.ActionLink("Back to list", "Index", "Tags", null, new { @class = "btn btn-light" })</p>
+<p>@Html.ActionLink("Add a recipe", "AddRecipe", null, new { id = Model.TagId }, new { @class = "btn btn-light" })</p>
+<p>@Html.ActionLink("Edit Tag", "Edit", null, new { id = Model.TagId }, new { @class = "btn btn-light"})</p>
+<p>@Html.ActionLink("Delete Tag", "Delete", null, new { id = Model.TagId }, new { @class = "btn btn-light"})</p>

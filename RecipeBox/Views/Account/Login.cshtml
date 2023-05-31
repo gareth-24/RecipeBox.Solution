@@ -16,14 +16,14 @@
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(m => m.Email)
-  @Html.TextBoxFor(m => m.Email)
+  @Html.LabelFor(m => m.Email)<br>
+  @Html.TextBoxFor(m => m.Email)<br>
 
-  @Html.LabelFor(m => m.Password)
-  @Html.EditorFor(m => m.Password)
-
+  @Html.LabelFor(m => m.Password)<br>
+  @Html.EditorFor(m => m.Password)<br>
+  <br>
   <input type="submit" value="Log in" />
 }
-
-<p>@Html.ActionLink("Register for an account", "Register")</p>
-<p>@Html.ActionLink("Back to accounts page", "Index")</p>
+<hr><br>
+<p>@Html.ActionLink("Register for an account", "Register", "Register", null, new { @class = "btn btn-light"})</p>
+<p>@Html.ActionLink("Back to accounts page", "Index", "Account", null, new { @class = "btn btn-light"})</p>

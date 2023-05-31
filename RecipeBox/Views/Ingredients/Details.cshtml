@@ -30,10 +30,10 @@ else
     }
   </ul>
 }
-<hr>
+<hr><br>
 
-<p>@Html.ActionLink("Back to ingredients list", "Index")</p>
-<p>@Html.ActionLink("Edit current ingredient", "Edit", new { id = Model.IngredientId })</p>
-<p>@Html.ActionLink("Delete current ingredient", "Delete", new { id = Model.IngredientId })</p>
-<p>@Html.ActionLink("Add current ingredient to recipe", "AddRecipe", new { id = Model.IngredientId })</p>
+<p>@Html.ActionLink("Back to ingredients list", "Index", "Ingredients", null, new { @class = "btn btn-light" })</p>
+<p>@Html.ActionLink("Edit current ingredient", "Edit", null, new { id = Model.IngredientId }, new { @class = "btn btn-light" })</p>
+<p>@Html.ActionLink("Delete current ingredient", "Delete", null, new { id = Model.IngredientId }, new { @class = "btn btn-light" })</p>
+<p>@Html.ActionLink("Add current ingredient to recipe", "AddRecipe", null, new { id = Model.IngredientId }, new { @class = "btn btn-light" })</p>
 

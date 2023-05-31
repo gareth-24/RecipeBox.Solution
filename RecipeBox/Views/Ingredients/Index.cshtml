@@ -20,7 +20,7 @@ else
     }
   </ul>
 }
-<hr>
+<hr><br>
 
-<p>@Html.ActionLink("Add new ingredient", "Create")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+<p>@Html.ActionLink("Add new ingredient", "Create", "Ingredients", null, new { @class = "btn btn-light" })</p>
+<p>@Html.ActionLink("Back to Home", "Index", "Home", null, new { @class = "btn btn-light" })</p>
