@@ -266,6 +266,9 @@ namespace RecipeBox.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
                     b.Property<string>("RecipeName")
                         .IsRequired()
                         .HasColumnType("longtext");

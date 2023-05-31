@@ -19,8 +19,8 @@
   @Html.TextAreaFor(model => model.Instructions, 5, 40, null)
   <br>
   <br>
-
-// ADD RATING FOR RECIPE //
+  @Html.LabelFor(model => model.Rating)
+  @Html.TextBoxFor(model => model.Rating)
 
   <input type="submit" value="Add new category" />
 }
