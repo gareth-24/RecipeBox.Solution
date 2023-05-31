@@ -14,9 +14,17 @@
 
   @Html.LabelFor(model => model.RecipeName)
   @Html.EditorFor(model => model.RecipeName)
+  <br>
 
   @Html.LabelFor(model => model.Description)
   @Html.EditorFor(model => model.Description)
+  <br>
+
+  @Html.LabelFor(model => model.Instructions)
+  @Html.EditorFor(model => model.Instructions)
+  <br>
+
+  // ADD RATING FOR RECIPE //
 
   <input type="submit" value="Save" />
 }

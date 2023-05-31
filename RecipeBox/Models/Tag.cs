@@ -9,7 +9,7 @@ namespace RecipeBox.Models
     public int TagId { get; set; }
     [Required(ErrorMessage = "The tag's title can't be empty!")]
     public string Title { get; set; }
-    public List<RecipeTag> JoinEntities { get;} //collection navigation property
+    public List<RecipeTag> JoinRecipeTagEntities { get;} //collection navigation property
     public ApplicationUser User { get; set; }
   }
 }

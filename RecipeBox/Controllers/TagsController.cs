@@ -30,7 +30,7 @@ namespace RecipeBox.Controllers
     public ActionResult Details(int id)
     {
       Tag thisTag = _db.Tags
-        .Include(tag => tag.JoinEntities)
+        .Include(tag => tag.JoinRecipeTagEntities)
         .ThenInclude(join => join.Recipe)
         .FirstOrDefault(tag => tag.TagId == id);
       return View(thisTag);
@@ -61,8 +61,15 @@ namespace RecipeBox.Controllers
       }
     }
 
+    [Authorize]
+    public ActionResult Edit(int id)
+    {
+      Tag thisTag = _db.Tags.FirstOrDefault(tag => tag.TagId == id);
+      return View(thisTag);
+    }
 
     [Authorize]
+    [HttpPost]
     public ActionResult Edit (Tag tag)
     {
       _db.Tags.Update(tag);

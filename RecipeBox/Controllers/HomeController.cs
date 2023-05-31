@@ -23,8 +23,10 @@ namespace RecipeBox.Controllers
       public async Task<ActionResult> Index()
       {
         Recipe[] recs = _db.Recipes.ToArray();
+        Tag[] tags = _db.Tags.ToArray();
         Dictionary<string, object[]> model = new Dictionary<string, object[]>();
         model.Add("recipes", recs);
+        model.Add("tags", tags);
         string userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
         if (currentUser != null)

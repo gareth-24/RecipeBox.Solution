@@ -39,8 +39,18 @@ else
   <p>Please @Html.ActionLink("log in", "LogIn", "Account") to view or manage ingredients.</p>
 }
 
-<h4>Tags</h4>
-@* add tags stuff here *@
+<h4>Tags for @User.Identity.Name</h4>
+@if (Model["tags"].Length == 0)
+{
+  <p>No tags have been added yet!</p>
+}
+<ul>
+  @foreach (Tag tag in Model["tags"])
+  {
+    <li>@Html.ActionLink(tag.Title, "Details", "Tags", new { id = @tag.TagId})</li>
+  }
+</ul>
+
 
 <hr>
 <p>@Html.ActionLink("Manage ingredients", "Index", "Ingredients")</p>
