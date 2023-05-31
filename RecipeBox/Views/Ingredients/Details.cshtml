@@ -7,29 +7,32 @@
 
 <h2>Ingredient Details</h2>
 <hr>
-<h3>Ingredient: <em>@Html.DisplayFor(model => model.IngredientName)</em></h3>
+<div class="card">
+  <h4 class="card-header">Ingredient: <em>@Html.DisplayFor(model => model.IngredientName)</em></h4>
+  <div class="card-body">
+    @* can add quantity or description here later *@
 
-@* can add quantity or description here later *@
-
-@if(@Model.JoinIngredientRecipeEntities.Count == 0)
-{
-  <p>This ingredient is not used in any of the listed recipes yet.</p>
-}
-else
-{
-  <h4>This ingredient is used in the following recipes:</h4>
-  <ul>
-    @foreach (IngredientRecipe join in Model.JoinIngredientRecipeEntities)
+    @if(@Model.JoinIngredientRecipeEntities.Count == 0)
     {
-      <li>Recipe: @join.Recipe.RecipeName</li>
-      @using (Html.BeginForm("DeleteJoin", "Ingredients"))
-      {
-        @Html.Hidden("joinId", @join.IngredientRecipeId)
-        <input type="submit" value="Delete"/>
-      }
+      <p>This ingredient is not used in any of the listed recipes yet.</p>
     }
-  </ul>
-}
+    else
+    {
+      <h5>This ingredient is used in the following recipes:</h5>
+      <ul>
+        @foreach (IngredientRecipe join in Model.JoinIngredientRecipeEntities)
+        {
+          <li>Recipe: @join.Recipe.RecipeName</li>
+          @using (Html.BeginForm("DeleteJoin", "Ingredients"))
+          {
+            @Html.Hidden("joinId", @join.IngredientRecipeId)
+            <input type="submit" value="Delete" id="deleteDetails"/>
+          }
+        }
+      </ul>
+    }
+  </div>
+</div>
 <hr><br>
 
 <p>@Html.ActionLink("Back to ingredients list", "Index", "Ingredients", null, new { @class = "btn btn-light" })</p>

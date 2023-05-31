@@ -7,28 +7,31 @@
 
 <h2>Tag Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.Title): @Html.DisplayFor(model => model.Title)</h3>
-
-@if(@Model.JoinRecipeTagEntities.Count == 0)
-{
-  <p>This tag does not belong to any recipes</p>
-}
-else
-{
-  <h4>Recipes the tag belongs to:</h4>
-  <ul>
-  @foreach(RecipeTag join in Model.JoinRecipeTagEntities)
-  {
-    <li>@join.Recipe.RecipeName</li>
-    @using (Html.BeginForm("DeleteJoin", "Tags"))
+<div class="card">
+  <h4 class="card-header">@Html.DisplayNameFor(model => model.Title): @Html.DisplayFor(model => model.Title)</h4>
+  <div class="card-body">
+    @if(@Model.JoinRecipeTagEntities.Count == 0)
     {
-      @Html.Hidden("joinId", @join.RecipeTagId)
-      <input type="submit" value="Delete"/>
+      <p>This tag does not belong to any recipes</p>
     }
-  }
-  </ul>
-}
-<hr><br>
+    else
+    {
+      <h5>Recipes with this tag:</h5>
+      <ul>
+      @foreach(RecipeTag join in Model.JoinRecipeTagEntities)
+      {
+        <li>@join.Recipe.RecipeName</li>
+        @using (Html.BeginForm("DeleteJoin", "Tags"))
+        {
+          @Html.Hidden("joinId", @join.RecipeTagId)
+          <input type="submit" value="Delete" id="deleteDetails"/>
+        }
+      }
+      </ul>
+    }
+  </div>
+</div>
+<hr>
 <p>@Html.ActionLink("Back to list", "Index", "Tags", null, new { @class = "btn btn-light" })</p>
 <p>@Html.ActionLink("Add a recipe", "AddRecipe", null, new { id = Model.TagId }, new { @class = "btn btn-light" })</p>
 <p>@Html.ActionLink("Edit Tag", "Edit", null, new { id = Model.TagId }, new { @class = "btn btn-light"})</p>

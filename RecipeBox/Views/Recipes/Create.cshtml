@@ -5,7 +5,7 @@
 @model RecipeBox.Models.Recipe
 
 <h4>Add a new recipe</h4>
-<hr><br>
+<hr>
 
 <p>@Html.ValidationMessageFor(model => model.RecipeName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 <p>@Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>

@@ -99,9 +99,9 @@ namespace RecipeBox.Controllers
     [HttpPost]
     public ActionResult AddRecipe(Ingredient ingredient, int RecipeId)
     {
-#nullable enable
-    IngredientRecipe? joinEntity = _db.IngredientRecipes.FirstOrDefault(join => (join.IngredientId == ingredient.IngredientId && join.RecipeId == RecipeId));
-#nullable disable
+      #nullable enable
+      IngredientRecipe? joinEntity = _db.IngredientRecipes.FirstOrDefault(join => (join.IngredientId == ingredient.IngredientId && join.RecipeId == RecipeId));
+      #nullable disable
       if (RecipeId != 0 && joinEntity == null)
       {
         _db.IngredientRecipes.Add(new IngredientRecipe() { RecipeId = RecipeId, IngredientId = ingredient.IngredientId });

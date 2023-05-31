@@ -8,54 +8,56 @@
 
 <h2>Recipe Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.RecipeName): <em>@Html.DisplayFor(model => model.RecipeName)</em></h3>
+<div class="card">
+  <h4 class="card-header">Recipe Name: <em>@Html.DisplayFor(model => model.RecipeName)</em></h4>
+  <div class="card-body">
+    <h6>@Html.DisplayNameFor(model => model.Description): <em>@Html.DisplayFor(model => model.Description)</em></h6>
 
-<h3>@Html.DisplayNameFor(model => model.Description): <em>@Html.DisplayFor(model => model.Description)</em></h3>
+    <h6>@Html.DisplayNameFor(model => model.Instructions): <em>@Html.DisplayFor(model => model.Instructions)</em></h5>
 
-<h3>@Html.DisplayNameFor(model => model.Instructions): <em>@Html.DisplayFor(model => model.Instructions)</em></h3>
+    <h6>@Html.DisplayNameFor(model => model.Rating): <em>@Html.DisplayFor(model => model.Rating)/10</em></h6>
+  </div>
+  @if(@Model.JoinIngredientRecipeEntities.Count == 0)
+  {
+    <p>This recipe does not have any ingredients listed yet!</p>
+  }
+  else
+  {
+    <h5 class="card-header">Ingredients used in this recipe:</h5>
+    <ul>
+      @foreach (IngredientRecipe join in Model.JoinIngredientRecipeEntities)
+      {
+        <li>@join.Ingredient.IngredientName</li> 
+        @using (Html.BeginForm("DeleteJoin", "Recipes"))
+        {
+          @Html.Hidden("joinId", @join.IngredientRecipeId) 
+          <input type="submit" value="Delete" id="deleteDetails"/>
+        }
+      }
+    </ul>
+  }
 
-<h3>@Html.DisplayNameFor(model => model.Rating): <em>@Html.DisplayFor(model => model.Rating)</em></h3>
-
-@if(@Model.JoinIngredientRecipeEntities.Count == 0)
-{
-  <p>This recipe does not have any ingredients listed yet!</p>
-}
-else
-{
-  <h4>Ingredients used in this recipe:</h4>
+  @if(@Model.JoinRecipeTagEntities.Count == 0)
+  {
+    <p>This recipe does not have any tags yet!</p>
+  }
+  else
+  {
+  <h5 class="card-header">Tags for this recipe:</h5>
   <ul>
-    @foreach (IngredientRecipe join in Model.JoinIngredientRecipeEntities)
-    {
-      <li>Ingredient: @join.Ingredient.IngredientName</li>
-      @using (Html.BeginForm("DeleteJoin", "Recipes"))
+      @foreach (RecipeTag join in Model.JoinRecipeTagEntities)
       {
-        @Html.Hidden("joinId", @join.IngredientRecipeId)
-        <input type="submit" value="Delete"/>
+        <li>@join.Tag.Title</li>
+        @using (Html.BeginForm("DeleteTagJoin", "Recipes"))
+        {
+          @Html.Hidden("joinId", @join.RecipeTagId)
+          <input type="submit" value="Delete" id="deleteDetails"/>
+        }
       }
-    }
   </ul>
-}
-
-@if(@Model.JoinRecipeTagEntities.Count == 0)
-{
-  <p>This recipe does not have any tags yet!</p>
-}
-else
-{
-<h4>Tags for this recipe:</h4>
-<ul>
-    @foreach (RecipeTag join in Model.JoinRecipeTagEntities)
-    {
-      <li>Tag: @join.Tag.Title</li>
-      @using (Html.BeginForm("DeleteTagJoin", "Recipes"))
-      {
-        @Html.Hidden("joinId", @join.RecipeTagId)
-        <input type="submit" value="Delete"/>
-      }
-    }
-</ul>
-}
-<hr><br>
+  }
+</div>
+<hr>
 <p>@Html.ActionLink("Back to Recipes", "Index", "Recipes", null, new { @class = "btn btn-light" })</p>
 <p>@Html.ActionLink("Add ingredient", "AddIngredient", null, new { id = Model.RecipeId }, new { @class = "btn btn-light" })</p>
 <p>@Html.ActionLink("Add tag", "AddTag", null, new { id = Model.RecipeId }, new { @class = "btn btn-light" })</p>

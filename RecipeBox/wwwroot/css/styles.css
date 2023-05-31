@@ -63,3 +63,16 @@ div#navbar {
 	width: 75%;
 	line-height: 200%;
 }
+
+input#deleteDetails {
+	background-color: #6d7ff9f0;
+	color: white;
+	border: none;
+	padding: 1px 4px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 12px;
+	margin: 4px 2px;
+	cursor: pointer;
+}

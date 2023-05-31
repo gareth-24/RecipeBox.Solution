@@ -9,7 +9,7 @@
 @Html.DisplayNameFor(model => model.RecipeName): @Html.DisplayFor(model => model.RecipeName)
 @using (Html.BeginForm())
 {
-  <input type="submit" value="Delete" />
+  <input type="submit" value="Delete" id="deleteDetails"/>
 }
 <hr><br>
 @Html.ActionLink("Back to List", "Index", "Recipes", null, new { @class = "btn btn-light" })
