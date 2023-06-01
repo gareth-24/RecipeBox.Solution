@@ -72,9 +72,16 @@ namespace RecipeBox.Controllers
     [HttpPost]
     public ActionResult Edit (Tag tag)
     {
-      _db.Tags.Update(tag);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
+      if(!ModelState.IsValid)
+      {
+        return View(tag);
+      }
+      else 
+      {
+        _db.Tags.Update(tag);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+      }
     }
 
     [Authorize]

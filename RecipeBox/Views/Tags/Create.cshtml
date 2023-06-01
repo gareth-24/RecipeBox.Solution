@@ -5,12 +5,14 @@
 @model RecipeBox.Models.Tag
 
 <h4>Add a new tag</h4>
-<hr><br>
+<hr>
+
+<p>@Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 
 @using (Html.BeginForm())
 {
     @Html.LabelFor(model => model.Title)<br>
-    @Html.TextBoxFor(model => model.Title)<br>
+    @Html.TextBoxFor(model => model.Title, new { placeholder = "Italian food", style="font-style:italic"})<br>
     <br>
     <input type="submit" value="Add new tag" class="btn btn-primary" />
 }

@@ -10,7 +10,9 @@ div#footer {
 }
 
 body {
-	background-color: #a6cfb8;
+	/* background-color: #a6cfb8; */
+	background: rgb(136,168,160);
+	background: linear-gradient(90deg, rgba(136,168,160,1) 5%, rgba(166,207,184,1) 50%, rgba(136,168,160,1) 100%);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: auto;

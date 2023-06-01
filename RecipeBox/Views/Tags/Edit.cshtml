@@ -8,6 +8,8 @@
 
 <h4>Edit this tag: @Html.DisplayFor(model => model.Title)</h4>
 
+<p>@Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(model => model.TagId)

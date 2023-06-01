@@ -12,9 +12,9 @@
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.IngredientName, "Ingredient:")<br>
-  @Html.TextBoxFor(model => model.IngredientName, new { required = "required" })<br>
+  @Html.TextBoxFor(model => model.IngredientName, new { placeholder = "Whole wheat pasta", style="font-style:italic"})<br>
   <br>
-  <input type="submit" value="Add new ingredient" class="btn btn-light" />
+  <input type="submit" value="Add new ingredient" class="btn btn-light"/>
 }
 <hr><br>
 <p>@Html.ActionLink("Show all ingredients", "Index", "Ingredients", null, new { @class = "btn btn-light" })</p>

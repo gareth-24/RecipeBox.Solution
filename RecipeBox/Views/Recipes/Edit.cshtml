@@ -8,6 +8,15 @@
 
 <h4>Edit this recipe: @Html.DisplayFor(model => model.RecipeName)</h4>
 
+<p>@Html.ValidationMessageFor(model => model.RecipeName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
+<p>@Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
+<p>@Html.ValidationMessageFor(model => model.Instructions, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
+<p>@Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
+
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.RecipeId)

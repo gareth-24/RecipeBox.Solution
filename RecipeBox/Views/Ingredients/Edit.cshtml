@@ -8,6 +8,7 @@
 
 <h4>Edit this ingredient: @Html.DisplayFor(model => model.IngredientName)</h4>
 
+<p>@Html.ValidationMessageFor(model => model.IngredientName, "", new { @class = "text-danger", @style = "font-weight: 600" })</p>
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.IngredientId)

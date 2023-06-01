@@ -72,9 +72,16 @@ namespace RecipeBox.Controllers
     [HttpPost]
     public ActionResult Edit (Ingredient ingredient)
     {
-      _db.Ingredients.Update(ingredient);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
+      if(!ModelState.IsValid)
+      {
+        return View(ingredient);
+      }
+      else
+      {
+        _db.Ingredients.Update(ingredient);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+      }
     }
     public ActionResult Delete (int id)
     {
